@@ -1,0 +1,31 @@
+﻿<h1>Apps</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add App</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th >Id</th>
+            <th >Name</th>
+            <th >Description</th>
+            <th >Price</th>
+            <th >Type</th>
+            <th >Developer</th>
+            <th >Addon</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of apps">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.description}}</td>
+            <td>{{user.price}}</td>
+            <td>{{user.type}}</td>
+            <td>{{user.developer}}</td>
+            <td>{{user.addedOn}}</td>
+        </tr>
+        <tr *ngIf="!apps">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>

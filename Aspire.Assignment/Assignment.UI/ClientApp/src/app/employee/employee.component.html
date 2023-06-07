@@ -1,0 +1,57 @@
+<div class="p-4">
+    <div class="container">
+<h1>Employees</h1>
+
+<a routerLink='addEmployee' class="btn btn-sm btn-success mb-2">Add Employee</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th >First Name</th>
+            <th >Last Name</th>
+            <th >DOB</th>
+            <th >Gender</th>
+            <th >Mobile Number</th>
+            <th >Email</th>
+            <th >Employee Number</th>
+            <th >Employee Designation</th>
+            <th >Practice</th>
+            <th >Employee Type</th>
+            <th> Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of employees">
+            <td>{{emp.firstName}}</td>
+            <td>{{emp.lastName}}</td>
+            <td>{{emp.dob|date:'yyyy-MM-dd'}}</td>
+            <td>{{emp.gender}}</td>          
+            <td>{{emp.contactNumber}}</td>
+            <td>{{emp.empEmailId}}</td>
+            <td>{{emp.employeeNumber}}</td>
+            <td>{{emp.empDesignation}}</td>
+            <td>{{emp.practice}}</td>
+            <td>{{emp.empType}}</td>
+            <td >
+                <div class='btn-toolbar'>
+                <div class='btn-group'>
+                <a  [routerLink]="['view',emp.empDetailsID]" class="btn btn-sm " style="background-color: cornflowerblue;" title="View"><i class="fas fa-eye"></i></a> 
+               <a  [routerLink]="['edit',emp.empDetailsID]" class="btn btn-sm " style="background-color: cornflowerblue;"  title="Edit"><i class="fas fa-edit"></i></a>
+               <button title="Delete" style="margin-right: 15px;" class="btn btn-sm" style="background-color: cornflowerblue;" (click)="deleteEmployee(emp)" ><i class="fas fa-trash"></i></button>            
+
+                </div></div>
+            </td>
+           
+        </tr>
+
+
+        <tr *ngIf="!employees">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</div>
